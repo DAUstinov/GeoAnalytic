@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Сервис геоаналитики</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header style="margin-bottom: -70px">
+
+    <div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom" style="margin: -20px;">
+
+      <h1 class="d-flex align-items-center fs-4 text-white mb-0">
+        <a href="home"><img src="https://i.ibb.co/nMYWvZB/logo1.png" width="100" height="100" alt="logo" style="background-color: white; margin-top: 20px"></a>
+    </h1>
+
+<nav id="navigation" class="site-navigation" role="navigation" style="margin-left: 180px">
+      <ul class="menu">
+        <li><a href="home" class="menu-item">Главная</a></li>
+        <li class="menu-item"><a href="#" >Форматы поиска </a>
+        <ul class="dropdown">
+        <li class="menu-item sub-menu" style="font-size: 14px"><a href="address">По адресу</a></li>
+        <li class="menu-item sub-menu" style="font-size: 14px">><a href="checkboxes">По фильтрам</a></li>
+        <li class="menu-item sub-menu" style="font-size: 14px">><a href="difference">Сравнительная характеристика</a></li>
+
+      </ul>
+        </li>
+        <li><a href="contacts" class="menu-item">Контакты</a></li>
+      </ul>
+</nav>
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2" onClick='location.href="signup"'>Регистрация</button>
+        <button type="button" class="btn btn-primary" onClick='location.href="login"'>Войти</button>
+      </div>
+    </header>
+  </div>
+  </header>
+
+
+
+<main>
+<div class="container pt-5 pb-lg-4 pb-xl-5">
+
+
+          <div class="row pt-md-2 pt-lg-5 pb-2 pb-md-4">
+            <div class="col-xxl-4 col-xl-5 col-lg-6 pt-3 mt-3">
+              <h1 class="display-1 text-gradient-primary pb-sm-2 pb-md-3 mb-3" style="font-size: 22px; margin-left: 0">Есть желание оставить обратную связь?</h1>
+
+              <h2 class="display-4 fw-bold lh-1" style="font-size: 80px; margin-top: -15px; margin-bottom: -15px">Свяжитесь с нами!</h2>
+              <div class="nav d-block lead pt-lg-5">
+                <a href="mailto:geoanalytics.retail@gmail.com" class="nav-link fw-normal text-decoration-underline p-0 mb-4">geoanalytics.retail@gmail.com</a>
+              <div class="text-nav">+375 29 764-66-66</div>
+              <div class="text-nav">+375 29 881-35-43</div>
+              </div>
+            </div>
+            <div class="col-lg-6 offset-xl-1 offset-xxl-2 pt-3 pt-md-4 pt-lg-3 mt-3">
+              <form class="needs-validation" novalidate="" method="post" name="myform">
+                <div class="row g-4">
+                  <div class="col-sm-6">
+                    <label for="fn" class="form-label fs-base">Ваше имя</label>
+                    <input type="text" class="form-control form-control-lg" id="fn" name="fn" required>
+                    <div class="invalid-feedback">Пожалуйста, введите имя!</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="email" class="form-label fs-base">Email</label>
+                    <input type="email" class="form-control form-control-lg" id="email" name="email" required>
+                    <div class="invalid-feedback">Пожалуйста, введите почту!</div>
+                  </div>
+                  <div class="col-12 pb-2">
+                    <label for="message" class="form-label fs-base">Сообщение</label>
+                    <textarea class="form-control form-control-lg" id="message" rows="3" name="message" required></textarea>
+                    <div class="invalid-feedback">Пожалуйста, введите сообщение!</div>
+                  </div>
+                  <div class="col-12">
+                    <button onclick="document.forms['myform'].submit();" type="submit" class="btn btn-lg btn-primary w-100 w-sm-auto">Отправить</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    <div class="b-example-divider"></div>
+
+  <div class="bg-dark text-secondary px-4 py-5 text-center">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="home" class="nav-link px-2 text-muted">Главная</a></li>
+      <li class="nav-item"><a href="address" class="nav-link px-2 text-muted">По адресу</a></li>
+      <li class="nav-item"><a href="difference" class="nav-link px-2 text-muted">Сравнительный анализ</a></li>
+    </ul>
+    </div>
+    <p>© 2022 Company, Inc</p>
+  </div>
+
+</main>
+
+<script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>

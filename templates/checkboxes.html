@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Сервис геоаналитики</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+    <div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <h1 class="d-flex align-items-center fs-4 text-white mb-0">
+        <a href="home_admin"><img src="https://i.ibb.co/nMYWvZB/logo1.png" width="100" height="100" alt="logo" style="background-color: white; margin-top: 20px"></a>
+    </h1>
+
+            <nav id="navigation" class="site-navigation" role="navigation" style="margin-left: 180px">
+      <ul class="menu">
+        <li><a href="home_admin" class="menu-item">Главная</a></li>
+        <li class="menu-item"><a href="#" >Форматы поиска </a>
+        <ul class="dropdown">
+        <li class="menu-item sub-menu" style="font-size: 14px"><a href="address">По адресу</a></li>
+        <li class="menu-item sub-menu" style="font-size: 14px">><a href="checkboxes">По фильтрам</a></li>
+        <li class="menu-item sub-menu" style="font-size: 14px">><a href="difference">Сравнительная характеристика</a></li>
+      </ul>
+        </li>
+        <li><a href="contacts_admin" class="menu-item">Контакты</a></li>
+      </ul>
+</nav>
+
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-primary" onClick='location.href="logout"'>Выйти</button>
+      </div>
+    </header>
+  </div>
+  </header>
+
+  <main>
+  <h1 class="visually-hidden">Heroes examples</h1>
+
+  <div class="b-example-divider"></div>
+
+  <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div>
+        <h1 style="margin-left: 0" class="display-4 fw-bold lh-1">Геоаналитика для Retail</h1>
+        <p class="lead text-muted" style="margin-top: 15px">Выберите нужные параметры для нового торгового места.</p>
+        <p class="lead text-muted" style="margin-top: -15px">Вы получите отчет сразу после нажатия кнопки.</p>
+      </div>
+
+      <hr class="my-5">
+
+      <div class="col-md-7 col-lg-8">
+        <form class="needs-validation" novalidate="" method="POST" onsubmit="return false;" name="myform">
+          <div class="row g-3">
+
+            <div class="col-md-5">
+              <label for="country" class="form-label">Страна</label>
+              <select class="form-select" id="country" required="">
+                <option value="">Выбрать</option>
+                <option>Беларусь</option>
+              </select>
+              <div class="invalid-feedback">
+                Некорректные данные
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="state" class="form-label">Город</label>
+              <select class="form-select" name="state" id="state" required="">
+                <option value="">Выбрать...</option>
+                <option>Минск</option>
+                <option>Гомель</option>
+                <option>Брест</option>
+                <option>Могилев</option>
+                <option>Витебск</option>
+                <option>Гродно</option>
+              </select>
+              <div class="invalid-feedback">
+                Некорректные данные
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="pop_min" class="form-label">Плотность населения</label>
+              <input type="text" class="form-control" name="pop_min" id="pop_min" placeholder="от" required="">
+              <div class="invalid-feedback">
+                Пожалуйста, введите плотность
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="pop_max" class="form-label" style="color: white">.</label>
+              <input type="text" class="form-control" name="pop_max" id="pop_max" placeholder="до" required="">
+              <div class="invalid-feedback">
+                Пожалуйста, введите плотность
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="shop_min" class="form-label">Магазины</label>
+              <input type="text" class="form-control" name="shop_min" id="shop_min" placeholder="от" required="">
+              <div class="invalid-feedback">
+                Пожалуйста, введите число
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="shop_max" class="form-label" style="color: white">.</label>
+              <input type="text" class="form-control" name="shop_max" id="shop_max" placeholder="до" required="">
+              <div class="invalid-feedback">
+                Пожалуйста, введите число
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="sh_mall" name="sh_mall">
+            <label class="form-check-label" for="sh_mall">торговые центры</label>
+          </div>
+            <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="sh_sup" name="sh_sup">
+            <label class="form-check-label" for="sh_sup">супермаркеты, универмаги</label>
+          </div>
+              <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="sh_pr" name="sh_pr">
+            <label class="form-check-label" for="sh_pr">небольшие продуктовые</label>
+          </div>
+              <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="sh_farm" name="sh_farm">
+            <label class="form-check-label" for="sh_farm">фермерские</label>
+          </div>
+            </div>
+
+            <div class="col-md-5">
+              <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="sh_mark" name="sh_mark">
+            <label class="form-check-label" for="sh_mark">рынки</label>
+          </div>
+            <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="sh_fr" name="sh_fr">
+            <label class="form-check-label" for="sh_fr">фруктово-овощные лавки</label>
+          </div>
+              <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="sh_bake" name="sh_bake">
+            <label class="form-check-label" for="sh_bake">кондитерские, пекарни</label>
+          </div>
+              <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="sh_opt" name="sh_opt">
+            <label class="form-check-label" for="sh_opt">оптовые магазины</label>
+          </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="cafe_min" class="form-label">Кафе, рестораны</label>
+              <input type="text" class="form-control" name="cafe_min" id="cafe_min" placeholder="от" required="">
+              <div class="invalid-feedback">
+                Пожалуйста, введите число
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="cafe_max" class="form-label" style="color: white">.</label>
+              <input type="text" class="form-control" name="cafe_max" id="cafe_max" placeholder="до" required="">
+              <div class="invalid-feedback">
+                Пожалуйста, введите число
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="orgs_min" class="form-label">Общественные учреждения</label>
+              <input type="text" class="form-control" name="orgs_min" id="orgs_min" placeholder="от" required="">
+              <div class="invalid-feedback">
+                Пожалуйста, введите число
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="orgs_max" class="form-label" style="color: white">.</label>
+              <input type="text" class="form-control" name="orgs_max" id="orgs_max" placeholder="до" required="">
+              <div class="invalid-feedback">
+                Пожалуйста, введите число
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="or_sch" name="or_sch">
+            <label class="form-check-label" for="or_sch">школы</label>
+          </div>
+            <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="or_un" name="or_un">
+            <label class="form-check-label" for="or_un">университеты, колледжи</label>
+          </div>
+              <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="or_kind" name="or_kind">
+            <label class="form-check-label" for="or_kind">детские сады</label>
+          </div>
+              <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="or_rel" name="or_rel">
+            <label class="form-check-label" for="or_rel">религиозные учреждения</label>
+          </div>
+            </div>
+
+            <div class="col-md-5">
+              <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="or_bank" name="or_bank">
+            <label class="form-check-label" for="or_bank">банки, банкоматы</label>
+          </div>
+            <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="or_med" name="or_med">
+            <label class="form-check-label" for="or_med">медицинские учреждения</label>
+          </div>
+              <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="or_post" name=or_post"">
+            <label class="form-check-label" for="or_post">почта</label>
+          </div>
+              <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="or_gos" name="or_gos">
+            <label class="form-check-label" for="or_gos">государственные учреждения</label>
+          </div>
+            </div>
+
+             <div class="col-md-5">
+              <label for="trans_min" class="form-label">Остановочные пункты</label>
+              <input type="text" class="form-control" name="trans_min" id="trans_min" placeholder="от" required="">
+              <div class="invalid-feedback">
+                Пожалуйста, введите число
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="trans_max" class="form-label" style="color: white">.</label>
+              <input type="text" class="form-control" name="trans_max" id="trans_max" placeholder="до" required="">
+              <div class="invalid-feedback">
+                Пожалуйста, введите число
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="tr_metro" name="tr_metro">
+            <label class="form-check-label" for="tr_metro">метро</label>
+          </div>
+            <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="tr_bus" name="tr_bus">
+            <label class="form-check-label" for="tr_bus">наземный транспорт</label>
+          </div>
+              <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="tr_zd" name=tr_zd"">
+            <label class="form-check-label" for="tr_zd">железнодорожные станции, вокзалы</label>
+          </div>
+              <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="tr_park" name="tr_park">
+            <label class="form-check-label" for="tr_park">парковки</label>
+          </div>
+            </div>
+
+
+
+          </div>
+
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+          <button onclick="document.forms['myform'].submit();" type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold" style="margin-top: 40px" >Получить отчет</button>
+        </div>
+        </form>
+      </div>
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3" src="bootstrap-docs.png" alt="" width="720">
+      </div>
+    </div>
+  </div>
+
+  <hr class="my-5">
+
+  <div class="container my-5">
+    <h1 class="display-4 fw-bold lh-1" style="margin-bottom: 50px">Подходящие области</h1>
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+
+
+  <section class="py-5 text-center container" style="margin-top: -50px">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="display-5 fw-bold" style="font-size: 38px">Вам подходит: {{count}} областей</h1>
+        <p class="lead text-muted" style="font-size: 20px">Области изображаются на карте в виде гексагонов("сот") из соображений оптимального разбиения пространства. Цвет указывает на приближенность области к параметрам вашего запроса.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <h2>Отчеты по подобранным областям</h2>
+      <div style="overflow: auto scroll; height: 300px">{{ df.to_html(classes='table table-striped text-center', justify='center') | safe}}</div>
+
+    </div>
+  </div>
+
+
+  <div class="b-example-divider"></div>
+
+  <div class="bg-dark text-secondary px-4 py-5 text-center">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" onClick='location.href="hex"'>Просмотреть карту</button>
+          <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" onClick='location.href="hex_heat"'>Просмотр с тепловой картой населения</button>
+
+        </div>
+  </div>
+
+
+  <div class="b-example-divider mb-0"></div>
+</main>
+<script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>

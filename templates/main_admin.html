@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Сервис геоаналитики</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+
+    <div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom" style="margin: -20px;">
+      <h1 class="d-flex align-items-center fs-4 text-white mb-0">
+        <a href="home_admin"><img src="https://i.ibb.co/nMYWvZB/logo1.png" width="100" height="100" alt="logo" style="background-color: white; margin-top: 20px"></a>
+    </h1>
+
+<nav id="navigation" class="site-navigation" role="navigation" style="margin-left: 180px">
+      <ul class="menu">
+        <li><a href="home_admin" class="menu-item">Главная</a></li>
+        <li class="menu-item"><a href="#" >Форматы поиска </a>
+        <ul class="dropdown">
+        <li class="menu-item sub-menu" style="font-size: 14px"><a href="address">По адресу</a></li>
+        <li class="menu-item sub-menu" style="font-size: 14px">><a href="checkboxes">По фильтрам</a></li>
+        <li class="menu-item sub-menu" style="font-size: 14px">><a href="difference">Сравнительная характеристика</a></li>
+      </ul>
+        </li>
+        <li><a href="contacts_admin" class="menu-item">Контакты</a></li>
+      </ul>
+</nav>
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-primary" onClick='location.href="logout"'>Выйти</button>
+      </div>
+    </header>
+  </div>
+  </header>
+
+<main style="margin-bottom: 100px">
+<div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg" style="background-image: url('https://images.unsplash.com/photo-1615307250409-be3bc317121c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed; color: #FFFFFF;">
+        <h1 class="display-4 fw-bold lh-1" style="text-shadow: black 5px 0 10px; font-size: 150px; text-align: center; margin-left: 0px; margin-top: 100px; margin-bottom: 160px">Геоаналитика для Retail</h1>
+      </div>
+</div>
+</main>
+
+
+<main>
+<blockquote style="text-align: center; margin-bottom: 100px">
+
+    <p class="lead" style="font-size: 50px"> <b>Местоположение</b> — это гораздо больше, чем место, которое
+        занимает ваш магазин.</p>
+
+    <p class="lead" style="font-size: 28px"> Сочетание продуманной розничной стратегии и прогнозной аналитики, чёткого понимания потребностей клиентов и геоаналитических данных является <b>основой успеха</b> современной розничной торговли.
+    </p>
+
+</blockquote>
+
+<div class="container px-4 py-5" id="custom-cards">
+<h2 class="pb-2 border-bottom" style="font-size: 40px"><b>ФУНКЦИОНАЛ ПОИСКА</b></h2>
+
+<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+  <div class="col" style="height: 300px">
+    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-position: center; background-image: url('https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80');">
+      <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+        <h3 class="display-4 fw-bold lh-1" style="margin-top:60px; text-shadow: white 1px 0 10px; text-align: center; font-size: 36px; color: black;">По конкретному адресу</h3>
+      </div>
+    </div>
+  </div>
+
+    <div class="col">
+    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-position: center; background-image: url('https://images.unsplash.com/photo-1584635240092-d87d74854f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');">
+      <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+        <h3 class="display-4 fw-bold lh-1" style="margin-top:50px; text-shadow: white 1px 0 10px; text-align: center; font-size: 36px; color: black;">По фильтрам требований к окружению</h3>
+      </div>
+    </div>
+  </div>
+
+    <div class="col">
+    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-position: left bottom; background-image: url('https://images.unsplash.com/photo-1581922819941-6ab31ab79afc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80');">
+      <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+        <h3 class="display-4 fw-bold lh-1" style="margin-top:50px; text-shadow: white 1px 0 10px; text-align: center; font-size: 36px; color: black;">Сравнение нескольких адресов</h3>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+</div>
+
+<div class="container px-4 py-5" id="custom-cards-2" style="margin-top: -100px">
+<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+  <div class="col" style="height: 300px">
+    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-position: center; background-image: url('https://images.unsplash.com/photo-1454117096348-e4abbeba002c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');">
+      <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+        <h3 class="display-4 fw-bold lh-1" style="margin-top:30px; text-shadow: white 1px 0 10px; text-align: center; font-size: 36px; color: black;">Возможность загрузки собственных данных</h3>
+      </div>
+    </div>
+  </div>
+
+    <div class="col">
+    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-position: center; background-image: url('https://images.unsplash.com/photo-1600540984005-c7f3a641fbe5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80');">
+      <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+        <h3 class="display-4 fw-bold lh-1" style="margin-top:70px; text-shadow: white 1px 0 10px; text-align: center; font-size: 36px; color: black;">В выделенной на карте области</h3>
+      </div>
+    </div>
+  </div>
+
+    <div class="col">
+    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-position: center; background-image: url('https://images.unsplash.com/photo-1532456745301-b2c645d8b80d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');">
+      <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+        <h3 class="display-4 fw-bold lh-1" style="margin-top:70px; text-shadow: white 1px 0 10px; text-align: center; font-size: 36px; color: black;">По координатам точки</h3>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+</div>
+
+<div class="container px-4 py-5" id="custom-cards-3" style="margin-top: 100px">
+<h2 class="pb-2 border-bottom" style="font-size: 40px; text-align: right"><b>ИСПОЛЬЗУЕМЫЕ ТЕХНОЛОГИИ</b></h2>
+
+  <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5" style="margin-left: 170px; margin-top: 50px">
+
+  <div class="col" style="height: 200px">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Python_icon_%28black_and_white%29.svg/2048px-Python_icon_%28black_and_white%29.svg.png" alt="" class="round" width="150" height="150">
+  <p class="lead" style="font-size: 28px; margin-top: 15px">Python</p>
+  </div>
+
+<div class="col" style="height: 200px">
+  <img src="data:image/png;base64,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" alt="" class="round" width="150" height="150">
+<p class="lead" style="font-size: 28px; margin-top: 15px">Jupyter</p>
+</div>
+
+    <div class="col" style="height: 200px">
+    <img src="data:image/png;base64,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" alt="" class="round" width="150" height="150">
+ <p class="lead" style="font-size: 28px; margin-top: 15px">Anaconda</p>
+  </div>
+
+  </div>
+
+  <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5" style="margin-left: 170px; margin-top: 70px">
+
+  <div class="col" style="height: 200px">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAkFBMVEX///8AAAD8/Pzq6ur4+Pjv7+/m5ube3t6mpqb29vbIyMjx8fH6+vrS0tLh4eHNzc2IiIjAwMCysrKXl5fY2NhPT0+4uLh7e3ssLCxBQUFKSkqcnJykpKSsrKyGhobLy8shISFzc3NkZGQwMDB1dXVbW1s6OjoXFxeRkZFgYGAmJiYLCwseHh5FRUVVVVUTExMxG9PLAAASPUlEQVR4nN1d52LqOgwuYUOhjJTQMkpoGQVK3//tLtgMS/KQszi9369zaOJYHtqWn57+JVRqrdkwWq13m32ptN8fPn+Wvemg03x+dMeyQDWcxG8lA35X81E3eHQX06AzfP01UXfDOh6VH93RZPj42jupu+Kt8eeIDOds6i54HzQf3Wk+mjPjzrNhH4WP7jkP7bl775mwaj26926Uo8TkCYz/cRqr3tuP4v3l0VRYMORzTxuWNf9PDxK8442PRSb0nbH1/viJt0Wjdg5U3dFeZkbfCYuO5+en4rX3bZiBzAnCmebXkXWBrpfRcPTRCcN6t1uv18POy2D4ddzYXun5aXPh9b3dMt2CrfSjzxId3yA2d/U4/KjqVex2vWF5b1336pn66nibkFvVGq/n9/vkD/WdqZtR3zUVna1xKnVrxYgv9PKyUfZbBe3W/CBfHZK/DfQd3MdM2RbODTzqy6OPmk68zV+4u7I+/b7PCvlrT9u7t4YHZ6v0V/pGquwmytoGNquBU6cP+tFYeeWbPKDt27u3atLFy0xg32U38K4lsXTelR3zWqg10Huf+NnmWtPmayIVWq8QsYdKv5QuA6W1QautOWUg+LnamDb3k1i1LMea3g2YL79YKBTDPgHjXp+udAIOs9Gahol6cUCMULPWmCQ2reJVYDe/SJFuZOBtWJkq01FYptWcponHTM+sEPbiUdN8v6Mmq8QQ3FNZ6Y0ynUbeLM44FJY+xLMGDQxpQ23CZFZ85m7DkHyZtbO7LAqltPvW/g0vFjLW/haBAS3ybRZzZtluayENtErKEbVHbIlRVgSe1v8nbpzji+OZ30Ldbev+gtYoWUof2RF40jPwMloz/ON06nWQWqdGjE9ha33896z9ZNjfs3S/UmFRKNfilvz+CRsjcoKvXXGBdRSGzNDzDwwhz0LyM7IJkUN0kYfLGg+z216csCgU/KJyQL+uYFNofA/Zz6DmK5/OrVhnURiLZ2P0K2QzeIrzIZDsxbnr+UBnBlCIZ0fwt8jaUH7OeCSRnO4pnjtaNFODv8FthlZPnl5qOJa/rsd95MWP+hOcQqQdpbIlXKjCb7m0Jq0gJ1iLZ4FAh7vwCB6nXo1MgWbFxbONhj6AoKej/BCDRqCsf8uLtCug7uSS+w0WhdJWUX6AggjajvmHC+C0OJgNz76Q4xTf/g/NQmiF5boJJSDTw/o/BovChXAy3uUFsBkCoPW7vpcJoNXv8Gbz7AuxEm5q7AG41+BCLya/AKiIa/uzxCLQQvLk18v/eqCFMX0wd3RA7+w7MYm8ABoLGKJ9Uck+sfpVBzvl2RfC3XJRY6E4ADoG15OZGtBjb9eCNb46DUTXnyVPmaivA5V7XVy+FtATe9ZHefaFXAgykACEIdBsC5vCp6em+t2F3YrysC/EnjuAD6lu5V1+BFEAIWB3yvLkhRA6QusF7BLYVI0cCSIAO3FlffSDRaG0L95LSMACPpUfOTrE6qftcU8WhT/i0QaiA8ianG0KDBBpsHMAXlKIUKjLSPiAReqXR5AeKgN5tT5ZHXKYjdRFP6GXVB2c3K0mDOBHc4Xnuw1nIOrr0ipQaNQHJtqWcwSwixiOk+pIGza/YfwsW1WDSUDc5+VeM0M1aphMoLPVhKivkNvsSxWuqj5U+CKFy9RhYCioDVaG2LBchWC9q8a2XXPKBUAd83EttF/mJJRV0rIr9c+ZBpqYUL9vU2vmA7KFgloD+s/OIGo1GMNKpn3nIeatISG1dZmYrQjmVZBRUk1D/j7IEKp7waK4XaX2+7ZDqKxPFSlCggSqBVOQcY+6p3Tg12xfKFL7sJqRiEO1dc2iG+M/qTI0w4A2H0BpNCa1NFGmzCHqky3VnQquiber6g8qWmWTUJm5UebrUmXehyGmstmPftE8VdWQYg7dZyBWemB01BrMw0U8whImQLkxqtZ0eHoI1KCwSWsMLMd13rZWP526z+0maG5QbRtTtLSGyUJYDow7WA0COYOx+UD1m5p8iozQzGkqtbaJGq+gidCFQF1GpngCK32vtFiSXQmjXFNN0wVAZQU4i/AKFoEC6wmSFuo2L9CPqELNhTRoVbywxRVwHlWVJoMcyyRoKgLLQKHXybk387sPOkH3rKgrn/pHvI5eITv6H6AwUGwDolQK0FwuGxAZ/xiF+jnkpX1dgSSjqg09aB9WlDWo34fUzLUAe2JUTvMQ0+JkXCgelx/dA/pzMyZgxU+VFgXkJ+igEqCVh36yApuOqqetcGephFOn8Ttljd9Wx+chJj7klDq9NHCfKVHwhV/v2P5YDNS4mc4nzAv/XkEUM/V1k1KYM1S7Qaf8+8kKcjYE8KkCyNFA3Wa6+Cwvvn0BdQg/q37jx5TOUQO0GoHVxERYIT2uQCqofqCHlD2oqGOsyUv2kxXCodEGUj9W/vwQgQj2icbprnbQiUvyHsg6Vo38mLafP9Q52tFcnsB4oFwHedp3CUxE1RG5KIQkBFWr0ohDP7tCyooFyJIDLuci6mxgqIxAo3PQM302XBOhgXqmuoQfoHs/qx3URPe87IqFeGWI9psqjhjnrLIGYJU0sRVl9TsgZcURnYlTHbK74gOIsfJ5je2EzsA4IGz4Kh4rsBGLl4jq1zUuaXvmBYZ4RQwKUE/VrV5wShQ6eKHZhl4Eyk0WEUJUzXZftOIWqz2kH/eTFVJjEcYWiDIB66RgX01bPdJJi3N42hU1hRwQC1UPQxVsQYFjHhpZ5WVXSEZ1GRQgEcFAFSv0QViQqmy8FP0remqTQPkGuWWF8hqQFqvRinnH8q4QguBmbAFT+FV9rshylUfSQQgvWbERjOqmQQBDCegVBWZ+AU5JauScUB96KG2SUcXX/0JrHzxZ3CSCtWPwZVb7XGeiEPLBPW0R0AEU+MKC3XCXWcqLhBMOT8UH8sEyhTyrqCRTwEgdHK7aXzpMYXJIFnqXwUqw51tnBt/zcpVwazstK1e5um9Bk/CQZiFmIlw3TLutOopNFNLiJtA1CV7cFFH7F54uMCga0xHdnh/aJGjJioGxBUN1cBILcElBw8+0Cxel0njeJyu4O1jiAhiSPyoCdL9CrkMoXHNfpygmaNqFFzfVK60+1+5sQXEBqS9c/zeOWmTy27xPZgUoyY25Sndd5Pd7QPpcHdyWuvROyDjTz1QvDaBTK+d0YVihYmM88hiA5xbbF+Jm6Qx/7ou0Vxp/9c0mLsx8zzXUhjz1lhQJorUtZ2SCyv3oXa65vr1aCVLkc4wII8vdJil0JvC695HwnGsMG8qN25QRH7SVgzOFRxnlPTXAcaycHG9NdBDE6jh51p0auUylId3SBqzF+1ZuZuEZyWvHhreaiIel3xUTNE01BxIrKJ957NhSzvChSTZooMvDzXyhtnHCtqt7mkKcBOMpy1evP9OfsXexhutqutkZr/oOY7GaMqkzFRrk1AQjhYdXTcGddWhOFc9Q9JNSpBybiZVO4/ZL2HLh11npqIQtavP0CBgEuvO3HSshE9lPK7y/8TQTdzUFN7NwnmaI05vEdBDXzNrETnnhZviM4xqblNNYp6d6xtzavc+a/qhwC21eqbBjCg9cU7PQdvxlYa+m4C5+yCPwhHlCjhPodvmbR/lsaw8zJPCEXgIag4b2xLXPxrZVa3MfmfQh8IQvz+BbZapNf/U8JWc8mqe7gaAf735/D+PvqdznPIVBxavz8o47wljfhm/wx3R7wIbOYKi4p6Ky9wxK/EYdjqJbN9Yi8ebLpmrydAbRjPX8ouQKxjH1YapotubGlTVOwJS19sWe7hi/3JQzYhuV0UDLx6qjni1SlCjGrOvHjhDY9MoQE+g9VWw0nnA4zrfDyXQ2mzUmw23v69URINolq0uhyYyiBNILARgEntDyf8+MecKsMqrW7MkuqXodWpDdubzql/9oQbJbXAReUVO00jivxCnAnaVX4yzo+0zjLkBMf0wI9DuUgQg8IeQVZrRgnU51h6fVD4RAv+wwAexeMAlvHn5Su3tU4UP3YAICNVpHLfE1lq8GBlr1kByKWrMjBLruE9LA4CAaJbhqdTM3SfiRT9n3+/ksKib8MqdsBD6dVTE/Ir9HJiMiOC8JviOvchW0myxm0KoYB90JZt0mxDSmeUMoxKxHJmQs29yRJjOdwSue+1uXHvA6tToXrocs+AanJIT6dnIhUFLZGUXHNb0jePe+HPYdynXnFpzh89igaAIvKHfD/mzYm0fRfD6cjsJ6zW28txWm7MFNl7rLPrLeg5kAOL49iha3Sj/k4dxnMAH6KHro4RWZkeXxDxL4gQJJ+1Wa4lu8wrsQ+SZetqCYWUT9VBe6JSEw1zz2ERAwb5O0pdMSLNEz8spjr6pG5jjup4+DJCQwn2yv55bil18NM6l7l0BMXJB9rajO/d7TTdTP6BbxxDNI8oNrUumo7LaWdDEzgtY9JvPeoJpOkHDJpCCwtFEbavxedGNxc6KurqYF7XBy8wy8RS3ig2qGw2PC4ltpCIR1FZY4e3qznHF2UTUczY9XL+5+OaMcuj5biro7iUJ2yfegjkJhIYB0sLGmribC3SAfbzt0dbduBYANha/sSDeDkMLj5b+kzfUwtCmUcpB3GqEQ1CdpD3SmJVClMFirpzIR9rFm8V1ROnw36HKujb6Q1zaBgyo1geoxjMoBXGtC8WNK9KwRlhS89H5oA/4u8NQEAubWhFfT6LGauTl+eaD3t/qnWqcnEFSEq184gcutf+i1zFpY88VcI947oyw9gTA9bHY/we+EXozUG9Y8Ct84RkoxcQa08L/RqUwH1luQunPSZxzuKt+LpZKZSwAwgaBS2guG4VPW4OsyLdUZo6aqZ05gBgQip8kEXJ/EhDxP1HE/WPKtl5rBEj0gi3t8OaPo1Yi0TejVyjp4mdu8QbMD6Yj9SzqOX1xHrlJWOJaXe5ndDJLsovVFVnglbByE2HDVppbwcVxmQSBOYRxd/VIaVcQMyat4aToeWfJZLFGcJx0sLr/5ldaUO5eVfL7nq2x5ECiUbfEPv3Jpdf6g8K8CzWKJEh3/nD0lHRqxTzt7j0FhF4fLYgZJFoHwWgjGXzGfO9Ig8hgUrqxIEKMnIJJXToKQHn5ZHGKoLIexFDgv485wBslykRp8Alkh7T3eoDBlRS4EXja2lBVeyXCSefByqHiltbNYooTA66iJLgTWdzGkvccL87P8+rkQeG30V2ipCWQFz9jS1ITKh0DCZG6Nyi7wbv+8QAahecYW5zLQXGcQVAbjQtp7MetZhmOZp93aQQis39ONRRf8ZIXUG1iPMnxQuRCo5GhKlxQ5TmeFcLrx2LvbFUzOYiaAjcCLuOJd73KBDOJkJCvwifYkIHu9qzYq0gnbXp+R5j3P2HKF6pp5EAhHTfzkp1AI8563e1xVjPCR/SSgBII/Sx+U6ayKHuIVnqxw2BXP3NxACyiB8CoXD0v2igztCt7lxlYQAqtoWQi26Fe1UNgVFdadN47bzb3UDD0IgW0UWpD7xK/CLS6XZoHdrvATUVpQAvHIy5o/XondPnaF1QeV4FwBBkkowUv06vX0alUOCitHemNNeEjPZQiB9LyQrMbhdwpFDArPrrDWGUgfQKNLlB7Gkmxx4NPsWJj3vJ1rPVyS+MzDFU4mU7od2/b6lozIsNj80ZqR6OWA1sC9RONbeaLncMgXiHJenNryPnaVzElwpEMFIbAJCex9IIWRFQc8g2NX/NK6clnPIVGWmvc9uH/V5J0J9CO3GCelNTE2R0tyigovPQqD7sHrDH5GLRsHD8Ktw+c2tPbubf7CTihNIywogXLNr6ZdRt6hpa5m6ZIcpo9XLBs1n3i9/2HlG+gS/TyfPPc4Xv8UDk1Wjfgzdcwdet43DvpXCDASWP38mfgfWy2PdNVupayA4uWwovX/GEistFGLrJ404bkSbvFmwWWYzzsvaTZwwo2Y9T1HbbgrxWDdzPtlI022eLJJzOUe3HsNaumDEjvoc5u6xFsS6ym3i37L/eV5acqjNqsdveg8EWIHOQUSeMZpV67koixndkmN71Z80FXNKRD4qW4Puj81FbxKXPy9GTyD+FX+bwSe9BHuhXJ/cYlKlI2ZxQAPuqU5E5Q5s/iXCWSlVj3oJvHMUHUt1IfcKpopyvYQ1N8nUOsI/H8ReLLSzSTmUor7AWiavItFXYaTP5paNXzz/yHwSWtp0DJDfxskvPBT/GWiOQNZ/Q+5mDlndJXYwvivGhMO1Ifvv/v9eJnAAfqP4T9+lQsSHVfXsAAAAABJRU5ErkJggg==" alt="" class="round" width="150" height="150">
+  <p class="lead" style="font-size: 26px; margin-top: 15px">Open Street Map</p>
+  </div>
+
+
+<div class="col" style="height: 200px">
+  <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo-black.svg" alt="" class="round" width="150" height="150">
+<p class="lead" style="font-size: 28px; margin-top: 15px">Bootstrap</p>
+</div>
+
+    <div class="col" style="height: 200px">
+    <img src="https://www.kindpng.com/picc/m/188-1882559_python-flask-hd-png-download.png" alt="" class="round" width="150" height="150">
+ <p class="lead" style="font-size: 28px; margin-top: 15px">Flask</p>
+  </div>
+
+  </div>
+
+</div>
+
+<blockquote style="text-align: center;">
+
+    <p class="lead" style="font-size: 28px">
+      В основе сервиса используются математические модели предсказания среднего чека и
+      посещаемости магазина, разработанные на основе <b>градиентного бустинга</b> и <b>кросс-валидации</b> на временных рядах.
+В дальнейшем эти данные используются для
+предсказания доходности магазина в определённой локации.
+    </p>
+
+</blockquote>
+
+    <div class="b-example-divider"></div>
+
+  <div class="bg-dark text-secondary px-4 py-5 text-center">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="home_admin" class="nav-link px-2 text-muted">Главная</a></li>
+      <li class="nav-item"><a href="address" class="nav-link px-2 text-muted">По адресу</a></li>
+      <li class="nav-item"><a href="difference" class="nav-link px-2 text-muted">Сравнительный анализ</a></li>
+      <li class="nav-item"><a href="checkboxes" class="nav-link px-2 text-muted">По фильтрам</a></li>
+
+    </ul>
+    </div>
+    <p>© 2022 Company, Inc</p>
+  </div>
+
+</main>
+
+<script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>

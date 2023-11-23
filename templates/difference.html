@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Сервис геоаналитики</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+    <div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <h1 class="d-flex align-items-center fs-4 text-white mb-0">
+        <a href="home_admin"><img src="https://i.ibb.co/nMYWvZB/logo1.png" width="100" height="100" alt="logo" style="background-color: white; margin-top: 20px"></a>
+    </h1>
+
+      <nav id="navigation" class="site-navigation" role="navigation" style="margin-left: 180px">
+      <ul class="menu">
+        <li><a href="home_admin" class="menu-item">Главная</a></li>
+        <li class="menu-item"><a href="#" >Форматы поиска </a>
+        <ul class="dropdown">
+        <li class="menu-item sub-menu" style="font-size: 14px"><a href="address">По адресу</a></li>
+        <li class="menu-item sub-menu" style="font-size: 14px">><a href="checkboxes">По фильтрам</a></li>
+        <li class="menu-item sub-menu" style="font-size: 14px">><a href="difference">Сравнительная характеристика</a></li>
+      </ul>
+        </li>
+        <li><a href="contacts_admin" class="menu-item">Контакты</a></li>
+      </ul>
+</nav>
+
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-primary" onClick='location.href="logout"'>Выйти</button>
+      </div>
+    </header>
+  </div>
+  </header>
+
+  <main>
+  <h1 class="visually-hidden">Heroes examples</h1>
+
+  <div class="b-example-divider"></div>
+
+  <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div>
+        <h1 style="margin-left: 0" class="display-4 fw-bold lh-1">Геоаналитика для Retail</h1>
+        <p class="lead text-muted" style="margin-top: 15px">Введите несколько адресов, информацию об окружении которых хотите узнать.</p>
+        <p class="lead text-muted" style="margin-top: -15px">Вы получите отчет сразу после нажатия кнопки.</p>
+      </div>
+
+      <hr class="my-5">
+
+      <div class="col-md-7 col-lg-8">
+        <form class="needs-validation" novalidate="" method="POST" onsubmit="return false;" name="myform">
+          <div class="row g-3">
+
+            <h2>Пункт №1</h2>
+            <div class="col-md-5">
+              <label for="country_1" class="form-label">Страна</label>
+              <select class="form-select" id="country_1" required="">
+                <option value="">Выбрать</option>
+                <option>Беларусь</option>
+              </select>
+              <div class="invalid-feedback">
+                Некорректные данные
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="state_1" class="form-label">Город</label>
+              <select class="form-select" name="state_1" id="state_1" required="">
+                <option value="">Выбрать...</option>
+                <option>Минск</option>
+                <option>Гомель</option>
+                <option>Брест</option>
+                <option>Могилев</option>
+                <option>Витебск</option>
+                <option>Гродно</option>
+              </select>
+              <div class="invalid-feedback">
+                Некорректные данные
+              </div>
+            </div>
+
+            <div class="col-10">
+              <label for="address_1" class="form-label">Адрес</label>
+              <input type="text" class="form-control" name="address_1" id="address_1" placeholder="проспект Независимости, 39" required="">
+              <div class="invalid-feedback">
+                Пожалуйста, введите адрес
+              </div>
+            </div>
+
+          </div>
+          <hr class="my-5">
+          <div class="row g-3">
+          <h2>Пункт №2</h2>
+            <div class="col-md-5">
+              <label for="country_2" class="form-label">Страна</label>
+              <select class="form-select" id="country_2" required="">
+                <option value="">Выбрать</option>
+                <option>Беларусь</option>
+              </select>
+              <div class="invalid-feedback">
+                Некорректные данные
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="state_2" class="form-label">Город</label>
+              <select class="form-select" name="state_2" id="state_2" required="">
+                <option value="">Выбрать...</option>
+                <option>Минск</option>
+                <option>Гомель</option>
+                <option>Брест</option>
+                <option>Могилев</option>
+                <option>Витебск</option>
+                <option>Гродно</option>
+              </select>
+              <div class="invalid-feedback">
+                Некорректные данные
+              </div>
+            </div>
+
+            <div class="col-10">
+              <label for="address_2" class="form-label">Адрес</label>
+              <input type="text" class="form-control" name="address_2" id="address_2" placeholder="проспект Газеты Правда, 5" required="">
+              <div class="invalid-feedback">
+                Пожалуйста, введите адрес
+              </div>
+            </div>
+
+          </div>
+
+           <hr class="my-5">
+          <div class="row g-3">
+          <h2>Пункт №3</h2>
+            <div class="col-md-5">
+              <label for="country_3" class="form-label">Страна</label>
+              <select class="form-select" id="country_3" required="">
+                <option value="">Выбрать</option>
+                <option>Беларусь</option>
+              </select>
+              <div class="invalid-feedback">
+                Некорректные данные
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="state_3" class="form-label">Город</label>
+              <select class="form-select" name="state_3" id="state_3" required="">
+                <option value="">Выбрать...</option>
+                <option>Минск</option>
+                <option>Гомель</option>
+                <option>Брест</option>
+                <option>Могилев</option>
+                <option>Витебск</option>
+                <option>Гродно</option>
+              </select>
+              <div class="invalid-feedback">
+                Некорректные данные
+              </div>
+            </div>
+
+            <div class="col-10">
+              <label for="address_3" class="form-label">Адрес</label>
+              <input type="text" class="form-control" name="address_3" id="address_3" placeholder="улица Каменногорская, 112" required="">
+              <div class="invalid-feedback">
+                Пожалуйста, введите адрес
+              </div>
+            </div>
+
+          </div>
+
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+          <button onclick="document.forms['myform'].submit();" type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold" style="margin-top: 40px" >Получить отчет</button>
+        </div>
+        </form>
+      </div>
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3" src="bootstrap-docs.png" alt="" width="720">
+      </div>
+    </div>
+  </div>
+
+  <hr class="my-5">
+
+  <div class="container my-5">
+    <h1 class="display-4 fw-bold lh-1" style="margin-bottom: 50px">Отчет об окружении</h1>
+
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+          <h2>Плотность населения</h2>
+          <div>
+        {{dashboard[0]|safe}}
+      </div>
+      <h2>Торговые точки</h2>
+          <div>
+        {{dashboard[1]|safe}}
+      </div>
+      <h2>Пункты питания</h2>
+          <div>
+        {{dashboard[2]|safe}}
+      </div>
+      <h2>Общественные организации</h2>
+          <div>
+        {{dashboard[3]|safe}}
+      </div>
+      <h2>Транспортные остановки</h2>
+          <div>
+        {{dashboard[4]|safe}}
+      </div>
+      <h2>Маршруты общественного транспорта</h2>
+          <div>
+        {{dashboard[5]|safe}}
+      </div>
+
+        <hr class="my-5">
+
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3" style="margin-top: -50px">
+        <div class="col d-flex align-items-start" style="text-align: center">
+          <h2>Точка: {{address_1}}</h2>
+        </div>
+        <div class="col d-flex align-items-start" style="text-align: center">
+          <h2> Точка: {{address_2}}</h2>
+        </div>
+        <div class="col d-flex align-items-start" style="text-align: center">
+          <h2> Точка: {{address_3}}</h2>
+        </div>
+      </div>
+
+      <hr class="my-4">
+  <!--
+  <div class="row g-4 py-5 row-cols-1 row-cols-lg-3" style="margin-top: -50px">
+      <div class="col d-flex align-items-start" style="margin-bottom: 50px">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEkklEQVRoge2YXYhVVRTHf97R5miFjA32TUNj9CUIDkEfSthDluVDI0RYGUTQBL0FFdLHg1koRESf9JD1UGCJZFEPRUUjlcSUWWofFlmaWekVxyjveOeeHtba95y57bPOvuc6Mz3cP2z2zD3//V9rn73XXutsaKONNtpoATOA5cDLwFbgIFAFnppMp5pBBKwEDgGxpx0Dzpk07wJxNvA5idPfAg8BS4DzgVf196PAR8BdwNRJ8dRAN/AD4uivwFIPpxcYBH4nmex7QOcE+RiE1xHHdgCnBPCXIhOOgafH0S8vSsBC4BlkC/2GxMIAUAP+Anqa0JuPbLMqsBZ4B9gDHAaGgUuPl+NpzEH2tS+Aa9o/WUD3hQzNGPgUWARMa9H3OuYhbykGysCzQD/QB+xPGS7yBhfp2D+AG9XWXGRFnO5XwEUtzQCYiSx3DLyBBHUa80hOolIB/Vk6/lDD7/OBB4Ht+nwXcHIB/TpWqtAnwAme51OQrVVuwUZNmw8RMKQ+3NeCDb5UkasMzhFgFJheQD9S/b8NzrXK2VZAH4AOoAL8g5243ldDVxawsVDHfmFwOpGK4BhGzrH2dQ2ZQBk5IrMwqH2/wcnCndq/aXAqwAH1ZVYWyZpIDPyJJDhffDi4ldhvcLJwWPvLDE4JOEn/PlrABpBk7MUG54hyipwq5+rYvQbHbb+tllDekeky9VkGZ1j7kNKkEedpv9vg9GkfF9CvY1QFTjQ4zytnE3BqE9q9wBYd+4DBm06SHKc0oT8Gu1XgcoPTjWTfGHiuCe1NOmY70GXwrlDeT01o/wdrSTK3tb3mKu+bQN0O5CQaRaqHLJyhtmNgTaC2F53ARhW6w+CVkGo4Bi4J0L2GgAAGVijvLeyTMwjXqdjHObzHlPch9iEylSQ27s3RdMn2piBPcxCRVLkDBq8rxXvU4LkJ/4x9iNxMUlBa268puCX+LJC3weBsUM7yHC3HuyfEwdDSe5f2eZnVlTIVgzOifV5ecBr7cnhA+ERmaG9VqZAUdSMGxzkY5Wg5nrX96giZSCdJbOTVUxc2OOGDe3ZBjtYv2t8NnJbDNREBtyO5IUZqqoszuCU1WFXuEkP3euVUdUzWy+wmScgHgVVIXgnGbGA1Uvm60uBrkponjQgJ8KEU9/EAG0+k+EOq4dtqpwNvp7gV4BUkAWdiGvAIcq3jBm5BjsHGZNSDZNr0ZPcBtwRMwmEFSRJ1nwxr8F8pLQDWI7EXIxXBS3gq7tnAZpLrnY34M3QvsA75WktP9jbyg9eHSMe6BOnuh9eprUaciaymK1t2kJp4B5K13XfBAo9AB/AwyRupAC/i325F0aeaFbUxgtwd+2JoDkmhug29+7pVfziAXET7JuE+sGpqbDxv1HvUhrv4e019aMRMpCKu14Hv6j/3Zwiv0ufDwLLj6rKNZSQXdaszOAP6/AOQlXDHa9nT3L3T1ePpdQYWk6yM1coAOwOI6yfU/bFw29pqgyCB0pXRflTiDRPr+xj0qw87LZL1DRwhOcUXaJOBKpI3vIVr3gXdd+PhUUF8jyTCNtpoo402/j/4F/fBbFNdFPl6AAAAAElFTkSuQmCC">
+        </div>
+        <div>
+          <h2 style="font-size: 24px">Плотность населения #1</h2>
+          <p style="font-size: 18px"> {{count_people[0]}} человек</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEkklEQVRoge2YXYhVVRTHf97R5miFjA32TUNj9CUIDkEfSthDluVDI0RYGUTQBL0FFdLHg1koRESf9JD1UGCJZFEPRUUjlcSUWWofFlmaWekVxyjveOeeHtba95y57bPOvuc6Mz3cP2z2zD3//V9rn73XXutsaKONNtpoATOA5cDLwFbgIFAFnppMp5pBBKwEDgGxpx0Dzpk07wJxNvA5idPfAg8BS4DzgVf196PAR8BdwNRJ8dRAN/AD4uivwFIPpxcYBH4nmex7QOcE+RiE1xHHdgCnBPCXIhOOgafH0S8vSsBC4BlkC/2GxMIAUAP+Anqa0JuPbLMqsBZ4B9gDHAaGgUuPl+NpzEH2tS+Aa9o/WUD3hQzNGPgUWARMa9H3OuYhbykGysCzQD/QB+xPGS7yBhfp2D+AG9XWXGRFnO5XwEUtzQCYiSx3DLyBBHUa80hOolIB/Vk6/lDD7/OBB4Ht+nwXcHIB/TpWqtAnwAme51OQrVVuwUZNmw8RMKQ+3NeCDb5UkasMzhFgFJheQD9S/b8NzrXK2VZAH4AOoAL8g5243ldDVxawsVDHfmFwOpGK4BhGzrH2dQ2ZQBk5IrMwqH2/wcnCndq/aXAqwAH1ZVYWyZpIDPyJJDhffDi4ldhvcLJwWPvLDE4JOEn/PlrABpBk7MUG54hyipwq5+rYvQbHbb+tllDekeky9VkGZ1j7kNKkEedpv9vg9GkfF9CvY1QFTjQ4zytnE3BqE9q9wBYd+4DBm06SHKc0oT8Gu1XgcoPTjWTfGHiuCe1NOmY70GXwrlDeT01o/wdrSTK3tb3mKu+bQN0O5CQaRaqHLJyhtmNgTaC2F53ARhW6w+CVkGo4Bi4J0L2GgAAGVijvLeyTMwjXqdjHObzHlPch9iEylSQ27s3RdMn2piBPcxCRVLkDBq8rxXvU4LkJ/4x9iNxMUlBa268puCX+LJC3weBsUM7yHC3HuyfEwdDSe5f2eZnVlTIVgzOifV5ecBr7cnhA+ERmaG9VqZAUdSMGxzkY5Wg5nrX96giZSCdJbOTVUxc2OOGDe3ZBjtYv2t8NnJbDNREBtyO5IUZqqoszuCU1WFXuEkP3euVUdUzWy+wmScgHgVVIXgnGbGA1Uvm60uBrkponjQgJ8KEU9/EAG0+k+EOq4dtqpwNvp7gV4BUkAWdiGvAIcq3jBm5BjsHGZNSDZNr0ZPcBtwRMwmEFSRJ1nwxr8F8pLQDWI7EXIxXBS3gq7tnAZpLrnY34M3QvsA75WktP9jbyg9eHSMe6BOnuh9eprUaciaymK1t2kJp4B5K13XfBAo9AB/AwyRupAC/i325F0aeaFbUxgtwd+2JoDkmhug29+7pVfziAXET7JuE+sGpqbDxv1HvUhrv4e019aMRMpCKu14Hv6j/3Zwiv0ufDwLLj6rKNZSQXdaszOAP6/AOQlXDHa9nT3L3T1ePpdQYWk6yM1coAOwOI6yfU/bFw29pqgyCB0pXRflTiDRPr+xj0qw87LZL1DRwhOcUXaJOBKpI3vIVr3gXdd+PhUUF8jyTCNtpoo402/j/4F/fBbFNdFPl6AAAAAElFTkSuQmCC">
+        </div>
+        <div>
+          <h2 style="font-size: 24px">Плотность населения #2</h2>
+          <p style="font-size: 18px"> {{count_people[1]}} человек</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEkklEQVRoge2YXYhVVRTHf97R5miFjA32TUNj9CUIDkEfSthDluVDI0RYGUTQBL0FFdLHg1koRESf9JD1UGCJZFEPRUUjlcSUWWofFlmaWekVxyjveOeeHtba95y57bPOvuc6Mz3cP2z2zD3//V9rn73XXutsaKONNtpoATOA5cDLwFbgIFAFnppMp5pBBKwEDgGxpx0Dzpk07wJxNvA5idPfAg8BS4DzgVf196PAR8BdwNRJ8dRAN/AD4uivwFIPpxcYBH4nmex7QOcE+RiE1xHHdgCnBPCXIhOOgafH0S8vSsBC4BlkC/2GxMIAUAP+Anqa0JuPbLMqsBZ4B9gDHAaGgUuPl+NpzEH2tS+Aa9o/WUD3hQzNGPgUWARMa9H3OuYhbykGysCzQD/QB+xPGS7yBhfp2D+AG9XWXGRFnO5XwEUtzQCYiSx3DLyBBHUa80hOolIB/Vk6/lDD7/OBB4Ht+nwXcHIB/TpWqtAnwAme51OQrVVuwUZNmw8RMKQ+3NeCDb5UkasMzhFgFJheQD9S/b8NzrXK2VZAH4AOoAL8g5243ldDVxawsVDHfmFwOpGK4BhGzrH2dQ2ZQBk5IrMwqH2/wcnCndq/aXAqwAH1ZVYWyZpIDPyJJDhffDi4ldhvcLJwWPvLDE4JOEn/PlrABpBk7MUG54hyipwq5+rYvQbHbb+tllDekeky9VkGZ1j7kNKkEedpv9vg9GkfF9CvY1QFTjQ4zytnE3BqE9q9wBYd+4DBm06SHKc0oT8Gu1XgcoPTjWTfGHiuCe1NOmY70GXwrlDeT01o/wdrSTK3tb3mKu+bQN0O5CQaRaqHLJyhtmNgTaC2F53ARhW6w+CVkGo4Bi4J0L2GgAAGVijvLeyTMwjXqdjHObzHlPch9iEylSQ27s3RdMn2piBPcxCRVLkDBq8rxXvU4LkJ/4x9iNxMUlBa268puCX+LJC3weBsUM7yHC3HuyfEwdDSe5f2eZnVlTIVgzOifV5ecBr7cnhA+ERmaG9VqZAUdSMGxzkY5Wg5nrX96giZSCdJbOTVUxc2OOGDe3ZBjtYv2t8NnJbDNREBtyO5IUZqqoszuCU1WFXuEkP3euVUdUzWy+wmScgHgVVIXgnGbGA1Uvm60uBrkponjQgJ8KEU9/EAG0+k+EOq4dtqpwNvp7gV4BUkAWdiGvAIcq3jBm5BjsHGZNSDZNr0ZPcBtwRMwmEFSRJ1nwxr8F8pLQDWI7EXIxXBS3gq7tnAZpLrnY34M3QvsA75WktP9jbyg9eHSMe6BOnuh9eprUaciaymK1t2kJp4B5K13XfBAo9AB/AwyRupAC/i325F0aeaFbUxgtwd+2JoDkmhug29+7pVfziAXET7JuE+sGpqbDxv1HvUhrv4e019aMRMpCKu14Hv6j/3Zwiv0ufDwLLj6rKNZSQXdaszOAP6/AOQlXDHa9nT3L3T1ePpdQYWk6yM1coAOwOI6yfU/bFw29pqgyCB0pXRflTiDRPr+xj0qw87LZL1DRwhOcUXaJOBKpI3vIVr3gXdd+PhUUF8jyTCNtpoo402/j/4F/fBbFNdFPl6AAAAAElFTkSuQmCC">
+        </div>
+        <div>
+          <h2 style="font-size: 24px">Плотность населения #3</h2>
+          <p style="font-size: 18px"> {{count_people[2]}} человек</p>
+        </div>
+      </div>
+
+      <div class="col d-flex align-items-start" style="margin-bottom: 50px">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABoElEQVRoge2YvU7DMBRGTxFTd5hakEDqDE8BiPJ+MMPEzM8ICCpU8R5VhVQJlk4tYbADabix09DGl+IjWYmur63vix3lOhCJRKrQAxKl7VES3CgwklRxXyM/dK/POyAwhQ94rU4Vy0RakewqaN1iDXLapBXZr0fLr9jLByQjXXs9xTjX1M6stuMybvuYZev6EgNwgtH27EvcBKbAGGguWVQVmhhtU2Aj25HfWgc2dm8HaGMMPGA0HmY78kbSztsaRFXlxl6PXElDzB7s5OJ94EnInzf+gil/pLhUetwJ+R2rcSjkfzGwSVuZWJvvOqelIL5tYwOXkQubdG0Ht+x9OuFV4Hgbs+0T4NxlpAVMMhOk7dU2LfEJs6skkiaPgDfgEtgBdu39e8D4KKPPS+nEQIj6Vqb6/ZdGQhx/xWOthHQCTAr6Qr03RTpm4r6jbpmJfRQ9mLLjSvEv3xHVRCPaiEa0EY046OH+Ivv6K7EMIx+4P2a+/oVRVMZXLe8XPS6W8X+CaEQb0Yg2ohFtuM7s2pnRLq2I9BddGwuv1SKRVecTiqvzQmGFFOEAAAAASUVORK5CYII=">
+        </div>
+        <div>
+          <h2 style="font-size: 24px">Торговые точки #1</h2>
+          <p style="font-size: 18px">{{count_shop[0]}} магазинов</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABoElEQVRoge2YvU7DMBRGTxFTd5hakEDqDE8BiPJ+MMPEzM8ICCpU8R5VhVQJlk4tYbADabix09DGl+IjWYmur63vix3lOhCJRKrQAxKl7VES3CgwklRxXyM/dK/POyAwhQ94rU4Vy0RakewqaN1iDXLapBXZr0fLr9jLByQjXXs9xTjX1M6stuMybvuYZev6EgNwgtH27EvcBKbAGGguWVQVmhhtU2Aj25HfWgc2dm8HaGMMPGA0HmY78kbSztsaRFXlxl6PXElDzB7s5OJ94EnInzf+gil/pLhUetwJ+R2rcSjkfzGwSVuZWJvvOqelIL5tYwOXkQubdG0Ht+x9OuFV4Hgbs+0T4NxlpAVMMhOk7dU2LfEJs6skkiaPgDfgEtgBdu39e8D4KKPPS+nEQIj6Vqb6/ZdGQhx/xWOthHQCTAr6Qr03RTpm4r6jbpmJfRQ9mLLjSvEv3xHVRCPaiEa0EY046OH+Ivv6K7EMIx+4P2a+/oVRVMZXLe8XPS6W8X+CaEQb0Yg2ohFtuM7s2pnRLq2I9BddGwuv1SKRVecTiqvzQmGFFOEAAAAASUVORK5CYII=">
+        </div>
+        <div>
+          <h2 style="font-size: 24px">Торговые точки #2</h2>
+          <p style="font-size: 18px">{{count_shop[1]}} магазинов</p>
+        </div>
+      </div>
+    <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABoElEQVRoge2YvU7DMBRGTxFTd5hakEDqDE8BiPJ+MMPEzM8ICCpU8R5VhVQJlk4tYbADabix09DGl+IjWYmur63vix3lOhCJRKrQAxKl7VES3CgwklRxXyM/dK/POyAwhQ94rU4Vy0RakewqaN1iDXLapBXZr0fLr9jLByQjXXs9xTjX1M6stuMybvuYZev6EgNwgtH27EvcBKbAGGguWVQVmhhtU2Aj25HfWgc2dm8HaGMMPGA0HmY78kbSztsaRFXlxl6PXElDzB7s5OJ94EnInzf+gil/pLhUetwJ+R2rcSjkfzGwSVuZWJvvOqelIL5tYwOXkQubdG0Ht+x9OuFV4Hgbs+0T4NxlpAVMMhOk7dU2LfEJs6skkiaPgDfgEtgBdu39e8D4KKPPS+nEQIj6Vqb6/ZdGQhx/xWOthHQCTAr6Qr03RTpm4r6jbpmJfRQ9mLLjSvEv3xHVRCPaiEa0EY046OH+Ivv6K7EMIx+4P2a+/oVRVMZXLe8XPS6W8X+CaEQb0Yg2ohFtuM7s2pnRLq2I9BddGwuv1SKRVecTiqvzQmGFFOEAAAAASUVORK5CYII=">
+        </div>
+        <div>
+          <h2 style="font-size: 24px">Торговые точки #3</h2>
+          <p style="font-size: 18px">{{count_shop[2]}} магазинов</p>
+        </div>
+      </div>
+
+      <div class="col d-flex align-items-start" style="margin-bottom: 50px">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAE+0lEQVRogd3aW4hWVRQH8N80OmqWd8gyorLMipSki2VYWSlJT6YlERKVFkgXKinoRfAhiKA0CIp8iYpS6qXoZlaUGZRMmeati1qZlpfUaqZJnelhneP3zZnv7ozj+IfNOWd/a+299j7rus9H12IsVmANJnbxXF2CE/EkDmAffkcrFmNIN8pVFaZiM9rwFs7AICzEIezGHNR1l4DlMBwviQVsw/QCNBOwNqH5BKOPmnQVoA6zsEvs+PM4uQR9bzyAv9GM+ejTxTKWxUVYKXb4a1yW+f0SLBJqdWnmt7PxXsK7CZO6VNIi6Cd2sgX/4FHUZ2huwkGx6y34L+nLYoacM3gJw7pG5I64Bhu0N+ZCaBQ7PQRDk/vGIrT5zmCHUNUuwylyxvxbBZPtwCt5z6/ijzI8V+G7ZI6PcV5NkhZBasw75Yx5QAV8S9CEucK4m/F6BXy9hao2J/zz0VC11Bmci+Vih77B5VXwjhCq1Ja0RuGiK8VIfJDwbsS1VfAeRl+xE//KGXOvGsapw7ikZZ1BpZghVDJ1BkOLTZSiHqfjQmF452A1HsTPNQrRWRgmUp6rhe09JNz+r0LdD2O6SB3aeljbjZuJNzIcPwk9XCz8fU9AA+7CKBFcTRGru7EbhaoVU4XsU3phvYjA8zBQRueOYdTjHlEqrE877xVpRHfrfLWtJVlMO681QPj6fcLdHst4WFScpwl528WG/SKa7sGHR1206jBTmMC+tOOE7pOlc1FNtB6M65L75fizQr6rRHBtxLcV0DfgepE1f6rGYLwGywr0j8V2OSPbjovLjHUClubxtGJBGZ4hIqdLeZpwSwG6F4UpFEWxhawUxc9k3JDcf1FGqNsTYZ7AGLwmFjOuBM8i4U7vEBXlKmEH/TN0NS2kdzL403l9T4nYU6rWfk7saGqHI8XC7ivBswqf5T3PTHjGZ+g6LKQSY+8tbKkpr69JBKRSdUI/4edb83iIM69SPNl5yvHgOPJax81CssjayHiRFbcJd/tj0vbIVW5XFhjnbaHDh/J4tsil3s9k6IcJ99wi1CnlST3lNpHppuhgI+XiyE5hgKuL/H4gocmiUXtdT/Flcl2X6W9KeH4oIcuWEr91QDH3e6yh6jdyJGgQp4dpvb4W7yv8pjodxd5IX6HXu5K2ULjKYpgodDybdm/HtDIy3I+t4mz4DZxagKbmyL5IxIM3ktaKZ4uMcbUw2p24U5TSw0RtvTnhva0I7yyx4BWi7G4WWUX2E0RNC6kTXmppXt8S4cWyEzSI+n+rqBWySGuevQqf8S4TBp+q/DyxsOyJY02RvZ/IfDfl9W0Q57UnZWgn4yw8Lo5Vs9gvVGegSD+yOE2o5MHkeWNyHVFOyM4OiGlG/G4Jms/Fgkolj1WjsxcyMLnuLUGTBtdBnTlxOfc7GLOT+yvkavkJyXUuXhA2dCSox93CbtJDbDg/ud6KX/B9pQNmjX2q8DLFTjFatf9481TSX+6cdwvezHseofwpzvw8+qoD4jtCXYrRHcoOWCO2ibdfqr4pWVpXEtn/qkaiI0CTI4j6x00af9wsJF+1zhSRt178M6EWjEmus+VK3EI4SQTOWucZLWS/QKYkmCOiaXef5dbSFhC5Un+R4H2Fx/Sc7yP1eER8pBpFvOI2cTDc0zBNyD6pTryVdSLdfll8/OwJ6CM+lDaII1lEmvyRnvWN5IAwh/HwPwP7ApxaWCm1AAAAAElFTkSuQmCC">        </div>
+        <div>
+          <h2 style="font-size: 22px">Общественные учреждения #1</h2>
+          <p style="font-size: 18px">{{count_orgs[0]}} учреждений</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAE+0lEQVRogd3aW4hWVRQH8N80OmqWd8gyorLMipSki2VYWSlJT6YlERKVFkgXKinoRfAhiKA0CIp8iYpS6qXoZlaUGZRMmeati1qZlpfUaqZJnelhneP3zZnv7ozj+IfNOWd/a+299j7rus9H12IsVmANJnbxXF2CE/EkDmAffkcrFmNIN8pVFaZiM9rwFs7AICzEIezGHNR1l4DlMBwviQVsw/QCNBOwNqH5BKOPmnQVoA6zsEvs+PM4uQR9bzyAv9GM+ejTxTKWxUVYKXb4a1yW+f0SLBJqdWnmt7PxXsK7CZO6VNIi6Cd2sgX/4FHUZ2huwkGx6y34L+nLYoacM3gJw7pG5I64Bhu0N+ZCaBQ7PQRDk/vGIrT5zmCHUNUuwylyxvxbBZPtwCt5z6/ijzI8V+G7ZI6PcV5NkhZBasw75Yx5QAV8S9CEucK4m/F6BXy9hao2J/zz0VC11Bmci+Vih77B5VXwjhCq1Ja0RuGiK8VIfJDwbsS1VfAeRl+xE//KGXOvGsapw7ikZZ1BpZghVDJ1BkOLTZSiHqfjQmF452A1HsTPNQrRWRgmUp6rhe09JNz+r0LdD2O6SB3aeljbjZuJNzIcPwk9XCz8fU9AA+7CKBFcTRGru7EbhaoVU4XsU3phvYjA8zBQRueOYdTjHlEqrE877xVpRHfrfLWtJVlMO681QPj6fcLdHst4WFScpwl528WG/SKa7sGHR1206jBTmMC+tOOE7pOlc1FNtB6M65L75fizQr6rRHBtxLcV0DfgepE1f6rGYLwGywr0j8V2OSPbjovLjHUClubxtGJBGZ4hIqdLeZpwSwG6F4UpFEWxhawUxc9k3JDcf1FGqNsTYZ7AGLwmFjOuBM8i4U7vEBXlKmEH/TN0NS2kdzL403l9T4nYU6rWfk7saGqHI8XC7ivBswqf5T3PTHjGZ+g6LKQSY+8tbKkpr69JBKRSdUI/4edb83iIM69SPNl5yvHgOPJax81CssjayHiRFbcJd/tj0vbIVW5XFhjnbaHDh/J4tsil3s9k6IcJ99wi1CnlST3lNpHppuhgI+XiyE5hgKuL/H4gocmiUXtdT/Flcl2X6W9KeH4oIcuWEr91QDH3e6yh6jdyJGgQp4dpvb4W7yv8pjodxd5IX6HXu5K2ULjKYpgodDybdm/HtDIy3I+t4mz4DZxagKbmyL5IxIM3ktaKZ4uMcbUw2p24U5TSw0RtvTnhva0I7yyx4BWi7G4WWUX2E0RNC6kTXmppXt8S4cWyEzSI+n+rqBWySGuevQqf8S4TBp+q/DyxsOyJY02RvZ/IfDfl9W0Q57UnZWgn4yw8Lo5Vs9gvVGegSD+yOE2o5MHkeWNyHVFOyM4OiGlG/G4Jms/Fgkolj1WjsxcyMLnuLUGTBtdBnTlxOfc7GLOT+yvkavkJyXUuXhA2dCSox93CbtJDbDg/ud6KX/B9pQNmjX2q8DLFTjFatf9481TSX+6cdwvezHseofwpzvw8+qoD4jtCXYrRHcoOWCO2ibdfqr4pWVpXEtn/qkaiI0CTI4j6x00af9wsJF+1zhSRt178M6EWjEmus+VK3EI4SQTOWucZLWS/QKYkmCOiaXef5dbSFhC5Un+R4H2Fx/Sc7yP1eER8pBpFvOI2cTDc0zBNyD6pTryVdSLdfll8/OwJ6CM+lDaII1lEmvyRnvWN5IAwh/HwPwP7ApxaWCm1AAAAAElFTkSuQmCC">        </div>
+        <div>
+          <h2 style="font-size: 22px">Общественные учреждения #2</h2>
+          <p style="font-size: 18px">{{count_orgs[1]}} учреждений</p>
+        </div>
+      </div>
+    <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAE+0lEQVRogd3aW4hWVRQH8N80OmqWd8gyorLMipSki2VYWSlJT6YlERKVFkgXKinoRfAhiKA0CIp8iYpS6qXoZlaUGZRMmeati1qZlpfUaqZJnelhneP3zZnv7ozj+IfNOWd/a+299j7rus9H12IsVmANJnbxXF2CE/EkDmAffkcrFmNIN8pVFaZiM9rwFs7AICzEIezGHNR1l4DlMBwviQVsw/QCNBOwNqH5BKOPmnQVoA6zsEvs+PM4uQR9bzyAv9GM+ejTxTKWxUVYKXb4a1yW+f0SLBJqdWnmt7PxXsK7CZO6VNIi6Cd2sgX/4FHUZ2huwkGx6y34L+nLYoacM3gJw7pG5I64Bhu0N+ZCaBQ7PQRDk/vGIrT5zmCHUNUuwylyxvxbBZPtwCt5z6/ijzI8V+G7ZI6PcV5NkhZBasw75Yx5QAV8S9CEucK4m/F6BXy9hao2J/zz0VC11Bmci+Vih77B5VXwjhCq1Ja0RuGiK8VIfJDwbsS1VfAeRl+xE//KGXOvGsapw7ikZZ1BpZghVDJ1BkOLTZSiHqfjQmF452A1HsTPNQrRWRgmUp6rhe09JNz+r0LdD2O6SB3aeljbjZuJNzIcPwk9XCz8fU9AA+7CKBFcTRGru7EbhaoVU4XsU3phvYjA8zBQRueOYdTjHlEqrE877xVpRHfrfLWtJVlMO681QPj6fcLdHst4WFScpwl528WG/SKa7sGHR1206jBTmMC+tOOE7pOlc1FNtB6M65L75fizQr6rRHBtxLcV0DfgepE1f6rGYLwGywr0j8V2OSPbjovLjHUClubxtGJBGZ4hIqdLeZpwSwG6F4UpFEWxhawUxc9k3JDcf1FGqNsTYZ7AGLwmFjOuBM8i4U7vEBXlKmEH/TN0NS2kdzL403l9T4nYU6rWfk7saGqHI8XC7ivBswqf5T3PTHjGZ+g6LKQSY+8tbKkpr69JBKRSdUI/4edb83iIM69SPNl5yvHgOPJax81CssjayHiRFbcJd/tj0vbIVW5XFhjnbaHDh/J4tsil3s9k6IcJ99wi1CnlST3lNpHppuhgI+XiyE5hgKuL/H4gocmiUXtdT/Flcl2X6W9KeH4oIcuWEr91QDH3e6yh6jdyJGgQp4dpvb4W7yv8pjodxd5IX6HXu5K2ULjKYpgodDybdm/HtDIy3I+t4mz4DZxagKbmyL5IxIM3ktaKZ4uMcbUw2p24U5TSw0RtvTnhva0I7yyx4BWi7G4WWUX2E0RNC6kTXmppXt8S4cWyEzSI+n+rqBWySGuevQqf8S4TBp+q/DyxsOyJY02RvZ/IfDfl9W0Q57UnZWgn4yw8Lo5Vs9gvVGegSD+yOE2o5MHkeWNyHVFOyM4OiGlG/G4Jms/Fgkolj1WjsxcyMLnuLUGTBtdBnTlxOfc7GLOT+yvkavkJyXUuXhA2dCSox93CbtJDbDg/ud6KX/B9pQNmjX2q8DLFTjFatf9481TSX+6cdwvezHseofwpzvw8+qoD4jtCXYrRHcoOWCO2ibdfqr4pWVpXEtn/qkaiI0CTI4j6x00af9wsJF+1zhSRt178M6EWjEmus+VK3EI4SQTOWucZLWS/QKYkmCOiaXef5dbSFhC5Un+R4H2Fx/Sc7yP1eER8pBpFvOI2cTDc0zBNyD6pTryVdSLdfll8/OwJ6CM+lDaII1lEmvyRnvWN5IAwh/HwPwP7ApxaWCm1AAAAAElFTkSuQmCC">        </div>
+        <div>
+          <h2 style="font-size: 22px">Общественные учреждения #3</h2>
+          <p style="font-size: 18px">{{count_orgs[2]}} учреждений</p>
+        </div>
+      </div>
+
+      <div class="col d-flex align-items-start" style="margin-bottom: 50px">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAChUlEQVRoge2Yv2sUQRTHPzkTNQpqENOJmkJrCxVBRNKZ/A/noWihWEZs1c4/QRAkf4NpLLQwkSQgFomgiSBYiqAI6kVN1mLeepPN3N7cvLm9JdkPDMu9ffve+87u/DqoqOgbI8AD4B3wG0gKaH+AV8DlWCKOAu8LKt7VNoCJGEKeScBF4DwwFCOogwHMG0+A+8BB4K6VW8UFCfQZOKQN1oGLkusTUBPbbrGt+QSo5dy7KtdHwLfAAn1pyHUa8zmBGY9gBAWzH/iO6ZFTmkDKXOlYCaYhAV5qgkTIpRbyQgJcA3YBdeAtsACMOvwHFT52LpsaLSF5Q6AtY5jvtAncAlbYPCUuWUWkxYX6nJNcP4ADmTomLd/JECH3MgkTKeIGsCy/l+X3itKnKddpRx0z1nMzIUI+ZBLXMb0KppeXHCK1PuOZGsaAdeCXtHWxdcVzTI/VMeMjyygwb/kMKn1m2ToGHmIEPpGWiC2YIeA6cFwTpEuGgS+Y4s9IS8Q2HBLwEvAReBOpQF/S6djemiyKreF8ogPzuKfFXpMWfcWypeJedxvstDz4FdgXozpPztL6jPZa9j2YPV/6uW2h3UJzW66PgZ9xavTippW3adnXMIPe9unICGaB2gBOxqjOk8O0ptoTjvvHgL8YgUd8Ak6hWIQU3JG8T3N80kVyyifgKoptgYI0b96JcEJ8Vn0CqjZqCnzy2htJ74BF45vX6Vd0r/eMSkjZCBEyR/j/VD07Og84bEnOPft+zJw+eXP9XOcEbUGdCugJO3qMlJJKSNmohJSNbSNEs470Y4fclpA3MqvIV8S/+/+pziP9pBJSNraNkLzzSNnZVLvrjcwVVIiGQqfxih3NPzDGGja2+HbeAAAAAElFTkSuQmCC">
+        </div>
+        <div>
+          <h2 style="font-size: 24px">Общественное питание #1</h2>
+          <p style="font-size: 18px"> {{count_cafe[0]}} пунктов</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAChUlEQVRoge2Yv2sUQRTHPzkTNQpqENOJmkJrCxVBRNKZ/A/noWihWEZs1c4/QRAkf4NpLLQwkSQgFomgiSBYiqAI6kVN1mLeepPN3N7cvLm9JdkPDMu9ffve+87u/DqoqOgbI8AD4B3wG0gKaH+AV8DlWCKOAu8LKt7VNoCJGEKeScBF4DwwFCOogwHMG0+A+8BB4K6VW8UFCfQZOKQN1oGLkusTUBPbbrGt+QSo5dy7KtdHwLfAAn1pyHUa8zmBGY9gBAWzH/iO6ZFTmkDKXOlYCaYhAV5qgkTIpRbyQgJcA3YBdeAtsACMOvwHFT52LpsaLSF5Q6AtY5jvtAncAlbYPCUuWUWkxYX6nJNcP4ADmTomLd/JECH3MgkTKeIGsCy/l+X3itKnKddpRx0z1nMzIUI+ZBLXMb0KppeXHCK1PuOZGsaAdeCXtHWxdcVzTI/VMeMjyygwb/kMKn1m2ToGHmIEPpGWiC2YIeA6cFwTpEuGgS+Y4s9IS8Q2HBLwEvAReBOpQF/S6djemiyKreF8ogPzuKfFXpMWfcWypeJedxvstDz4FdgXozpPztL6jPZa9j2YPV/6uW2h3UJzW66PgZ9xavTippW3adnXMIPe9unICGaB2gBOxqjOk8O0ptoTjvvHgL8YgUd8Ak6hWIQU3JG8T3N80kVyyifgKoptgYI0b96JcEJ8Vn0CqjZqCnzy2htJ74BF45vX6Vd0r/eMSkjZCBEyR/j/VD07Og84bEnOPft+zJw+eXP9XOcEbUGdCugJO3qMlJJKSNmohJSNbSNEs470Y4fclpA3MqvIV8S/+/+pziP9pBJSNraNkLzzSNnZVLvrjcwVVIiGQqfxih3NPzDGGja2+HbeAAAAAElFTkSuQmCC">
+        </div>
+        <div>
+          <h2 style="font-size: 24px">Общественное питание #2</h2>
+          <p style="font-size: 18px"> {{count_cafe[1]}} пунктов</p>
+        </div>
+      </div>
+    <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAChUlEQVRoge2Yv2sUQRTHPzkTNQpqENOJmkJrCxVBRNKZ/A/noWihWEZs1c4/QRAkf4NpLLQwkSQgFomgiSBYiqAI6kVN1mLeepPN3N7cvLm9JdkPDMu9ffve+87u/DqoqOgbI8AD4B3wG0gKaH+AV8DlWCKOAu8LKt7VNoCJGEKeScBF4DwwFCOogwHMG0+A+8BB4K6VW8UFCfQZOKQN1oGLkusTUBPbbrGt+QSo5dy7KtdHwLfAAn1pyHUa8zmBGY9gBAWzH/iO6ZFTmkDKXOlYCaYhAV5qgkTIpRbyQgJcA3YBdeAtsACMOvwHFT52LpsaLSF5Q6AtY5jvtAncAlbYPCUuWUWkxYX6nJNcP4ADmTomLd/JECH3MgkTKeIGsCy/l+X3itKnKddpRx0z1nMzIUI+ZBLXMb0KppeXHCK1PuOZGsaAdeCXtHWxdcVzTI/VMeMjyygwb/kMKn1m2ToGHmIEPpGWiC2YIeA6cFwTpEuGgS+Y4s9IS8Q2HBLwEvAReBOpQF/S6djemiyKreF8ogPzuKfFXpMWfcWypeJedxvstDz4FdgXozpPztL6jPZa9j2YPV/6uW2h3UJzW66PgZ9xavTippW3adnXMIPe9unICGaB2gBOxqjOk8O0ptoTjvvHgL8YgUd8Ak6hWIQU3JG8T3N80kVyyifgKoptgYI0b96JcEJ8Vn0CqjZqCnzy2htJ74BF45vX6Vd0r/eMSkjZCBEyR/j/VD07Og84bEnOPft+zJw+eXP9XOcEbUGdCugJO3qMlJJKSNmohJSNbSNEs470Y4fclpA3MqvIV8S/+/+pziP9pBJSNraNkLzzSNnZVLvrjcwVVIiGQqfxih3NPzDGGja2+HbeAAAAAElFTkSuQmCC">
+        </div>
+        <div>
+          <h2 style="font-size: 24px">Общественное питание #3</h2>
+          <p style="font-size: 18px"> {{count_cafe[2]}} пунктов</p>
+        </div>
+      </div>
+
+      <div class="col d-flex align-items-start" style="margin-bottom: 50px">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABgElEQVRoge2ZQU7DMBBFHwhxBijkQLS9AhcorMmaiqNwBtgAS4oELWch6aarsLCzwErANnY6iuZJVlVlfvx/3WiSGBRFiWUOPANboNnzqK2XWWiIOwHm+8bSN8TcCnbADTAJ/RUyMAFKjKcGmPqIXmxxmc9XNCXG25NPcW2LT3M6iuQE463yKW7/i1Lp9He4ByNZ0CDS0CAOoU1tC7wB18BxIg+9pmI0MeMTOMvhb+ggDbDBf2VEB2mAq8C50hV2aHy158CDo1kFzpWusEMToi0cjddtR98cBz2Ffcd+O/lf502l6/SnfSQBhfO9Tj3BENdIATw6mtf/+DvyFIcS8xhwn8PE0H1kzQga4pqw9wKigtSYa2JB+E3joNdISA9KgvYRaWgQaWgQaYwmSKo+MnjfcBnNimgQaYw6SPvIKWHLzaV9I/nlHugK8m4/L7PZiaf19OFTPMPc7+8we3YSVsbdDL3wFS5J8xo0x7gN/RWmmN3TSoD5ynrxXglFUX7yDfoRZGeMKo4oAAAAAElFTkSuQmCC">
+        </div>
+        <div>
+          <h2 style="font-size: 24px">Остановочные пункты #1</h2>
+          <p style="font-size: 18px"> {{count_trans[0]}} остановок</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABgElEQVRoge2ZQU7DMBBFHwhxBijkQLS9AhcorMmaiqNwBtgAS4oELWch6aarsLCzwErANnY6iuZJVlVlfvx/3WiSGBRFiWUOPANboNnzqK2XWWiIOwHm+8bSN8TcCnbADTAJ/RUyMAFKjKcGmPqIXmxxmc9XNCXG25NPcW2LT3M6iuQE463yKW7/i1Lp9He4ByNZ0CDS0CAOoU1tC7wB18BxIg+9pmI0MeMTOMvhb+ggDbDBf2VEB2mAq8C50hV2aHy158CDo1kFzpWusEMToi0cjddtR98cBz2Ffcd+O/lf502l6/SnfSQBhfO9Tj3BENdIATw6mtf/+DvyFIcS8xhwn8PE0H1kzQga4pqw9wKigtSYa2JB+E3joNdISA9KgvYRaWgQaWgQaYwmSKo+MnjfcBnNimgQaYw6SPvIKWHLzaV9I/nlHugK8m4/L7PZiaf19OFTPMPc7+8we3YSVsbdDL3wFS5J8xo0x7gN/RWmmN3TSoD5ynrxXglFUX7yDfoRZGeMKo4oAAAAAElFTkSuQmCC">
+        </div>
+        <div>
+          <h2 style="font-size: 24px">Остановочные пункты #2</h2>
+          <p style="font-size: 18px"> {{count_trans[1]}} остановок</p>
+        </div>
+      </div>
+    <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABgElEQVRoge2ZQU7DMBBFHwhxBijkQLS9AhcorMmaiqNwBtgAS4oELWch6aarsLCzwErANnY6iuZJVlVlfvx/3WiSGBRFiWUOPANboNnzqK2XWWiIOwHm+8bSN8TcCnbADTAJ/RUyMAFKjKcGmPqIXmxxmc9XNCXG25NPcW2LT3M6iuQE463yKW7/i1Lp9He4ByNZ0CDS0CAOoU1tC7wB18BxIg+9pmI0MeMTOMvhb+ggDbDBf2VEB2mAq8C50hV2aHy158CDo1kFzpWusEMToi0cjddtR98cBz2Ffcd+O/lf502l6/SnfSQBhfO9Tj3BENdIATw6mtf/+DvyFIcS8xhwn8PE0H1kzQga4pqw9wKigtSYa2JB+E3joNdISA9KgvYRaWgQaWgQaYwmSKo+MnjfcBnNimgQaYw6SPvIKWHLzaV9I/nlHugK8m4/L7PZiaf19OFTPMPc7+8we3YSVsbdDL3wFS5J8xo0x7gN/RWmmN3TSoD5ynrxXglFUX7yDfoRZGeMKo4oAAAAAElFTkSuQmCC">
+        </div>
+        <div>
+          <h2 style="font-size: 24px">Остановочные пункты #3</h2>
+          <p style="font-size: 18px"> {{count_trans[2]}} остановок</p>
+        </div>
+      </div>
+
+      <div class="col d-flex align-items-start" style="margin-bottom: 50px">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADGUlEQVRoge2aT2sTQRjGf4lSmlrBKl4UD/WgUBC8KSgGNIUqgrmI3v0GXgWtSu2holg/g4hXEW89aPDvB/CSgKV/BFurIhIaxcbDvGvidDKzk91NNpoHls3OvvO+zzM78+7MbDK0xihwETgBHAR2yJGx1EkCVWAFeA08BB6HrZgFbgI/gHoKjydALoyQGanwC3iEeipjwAiwJWxrxIhBYB9wCVgSbg9clcaADaAGjFvsJoBFkmnxBfFvwn7gm3A8bBNyR5zdsxlJsCS7z4Il9qzYTNsIvhKjvENIEDAJuHyflfvPbE5WxGh3xGBR4PJ9SO7P25ysi9GAI1g3u9ZesfluIxi2pScSFGMb7KBSbx34GYeQbmMTz2yISkWgBKyRzBOwHWsSuxhVaRGVszstQD82NDHGnmN6uQUoyfUM6s3eaYwAt4XD86Zy45gyDdoAQXfqhogAO4XDp6ayTQkiQ4O4/hvDdbdg41WHcIO9J9AXkjb0haQNfSFpQxb1VofemCzqCDgvgnlK3myYBoGteLWc9veakD/4p8aIDZ/l3M1J46icv9iMtjqcvAOOA1eAWzSE+SKD2m71xQHgvvx+6lNR73vnSMfCah616dCK56bpuWnaXgQuo3Yhd4VoDBPqwNc26n1EPYkp/u4NzuVFWrKUC/9v1uoZhBEyBNwAKqhd+gowSchvFJ6ILZbe93LAS8yZ5EU7ASzwieUcy7rBdbl+D5wCtgEFVDqsA9fiUNBGLG8hFbk+qdkVpLwcgbgOn1jeQmpyPazZbZfydX++LeETyzv9BmuVI1r5UTnbtv99EWssXekkjSlCAdVa4zT67VVPsjb4xPLuWjlUxjBlkhLqi2tc8InlFLIqBkNNZYOojFFG9eMyqnXiFOETa1g4rtoczYnR+QRIxoULKI5zNqMzYlRFbefngT0k8xYPi5xwyAunKorj6WYj0zS4F2a/oHG3pd+7wFvUd4lakowcqAmHN8IpNFwZIek1S1vxTU/kg5yPGe4FZcte1PwQW/xp3GvoqShMOxV/QJwtGxwsiRPXPyOioK34vwHlSh1qYVfqTAAAAABJRU5ErkJggg==">
+        </div>
+        <div>
+          <h2 style="font-size: 24px">Общественный транспорт #1</h2>
+          <p style="font-size: 18px">{{traffic[0]}} маршрутов</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start" style="margin-bottom: 50px">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADGUlEQVRoge2aT2sTQRjGf4lSmlrBKl4UD/WgUBC8KSgGNIUqgrmI3v0GXgWtSu2holg/g4hXEW89aPDvB/CSgKV/BFurIhIaxcbDvGvidDKzk91NNpoHls3OvvO+zzM78+7MbDK0xihwETgBHAR2yJGx1EkCVWAFeA08BB6HrZgFbgI/gHoKjydALoyQGanwC3iEeipjwAiwJWxrxIhBYB9wCVgSbg9clcaADaAGjFvsJoBFkmnxBfFvwn7gm3A8bBNyR5zdsxlJsCS7z4Il9qzYTNsIvhKjvENIEDAJuHyflfvPbE5WxGh3xGBR4PJ9SO7P25ysi9GAI1g3u9ZesfluIxi2pScSFGMb7KBSbx34GYeQbmMTz2yISkWgBKyRzBOwHWsSuxhVaRGVszstQD82NDHGnmN6uQUoyfUM6s3eaYwAt4XD86Zy45gyDdoAQXfqhogAO4XDp6ayTQkiQ4O4/hvDdbdg41WHcIO9J9AXkjb0haQNfSFpQxb1VofemCzqCDgvgnlK3myYBoGteLWc9veakD/4p8aIDZ/l3M1J46icv9iMtjqcvAOOA1eAWzSE+SKD2m71xQHgvvx+6lNR73vnSMfCah616dCK56bpuWnaXgQuo3Yhd4VoDBPqwNc26n1EPYkp/u4NzuVFWrKUC/9v1uoZhBEyBNwAKqhd+gowSchvFJ6ILZbe93LAS8yZ5EU7ASzwieUcy7rBdbl+D5wCtgEFVDqsA9fiUNBGLG8hFbk+qdkVpLwcgbgOn1jeQmpyPazZbZfydX++LeETyzv9BmuVI1r5UTnbtv99EWssXekkjSlCAdVa4zT67VVPsjb4xPLuWjlUxjBlkhLqi2tc8InlFLIqBkNNZYOojFFG9eMyqnXiFOETa1g4rtoczYnR+QRIxoULKI5zNqMzYlRFbefngT0k8xYPi5xwyAunKorj6WYj0zS4F2a/oHG3pd+7wFvUd4lakowcqAmHN8IpNFwZIek1S1vxTU/kg5yPGe4FZcte1PwQW/xp3GvoqShMOxV/QJwtGxwsiRPXPyOioK34vwHlSh1qYVfqTAAAAABJRU5ErkJggg==">
+        </div>
+        <div>
+          <h2 style="font-size: 24px">Общественный транспорт #2</h2>
+          <p style="font-size: 18px">{{traffic[1]}} маршрутов</p>
+        </div>
+      </div>
+    <div class="col d-flex align-items-start">
+        <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADGUlEQVRoge2aT2sTQRjGf4lSmlrBKl4UD/WgUBC8KSgGNIUqgrmI3v0GXgWtSu2holg/g4hXEW89aPDvB/CSgKV/BFurIhIaxcbDvGvidDKzk91NNpoHls3OvvO+zzM78+7MbDK0xihwETgBHAR2yJGx1EkCVWAFeA08BB6HrZgFbgI/gHoKjydALoyQGanwC3iEeipjwAiwJWxrxIhBYB9wCVgSbg9clcaADaAGjFvsJoBFkmnxBfFvwn7gm3A8bBNyR5zdsxlJsCS7z4Il9qzYTNsIvhKjvENIEDAJuHyflfvPbE5WxGh3xGBR4PJ9SO7P25ysi9GAI1g3u9ZesfluIxi2pScSFGMb7KBSbx34GYeQbmMTz2yISkWgBKyRzBOwHWsSuxhVaRGVszstQD82NDHGnmN6uQUoyfUM6s3eaYwAt4XD86Zy45gyDdoAQXfqhogAO4XDp6ayTQkiQ4O4/hvDdbdg41WHcIO9J9AXkjb0haQNfSFpQxb1VofemCzqCDgvgnlK3myYBoGteLWc9veakD/4p8aIDZ/l3M1J46icv9iMtjqcvAOOA1eAWzSE+SKD2m71xQHgvvx+6lNR73vnSMfCah616dCK56bpuWnaXgQuo3Yhd4VoDBPqwNc26n1EPYkp/u4NzuVFWrKUC/9v1uoZhBEyBNwAKqhd+gowSchvFJ6ILZbe93LAS8yZ5EU7ASzwieUcy7rBdbl+D5wCtgEFVDqsA9fiUNBGLG8hFbk+qdkVpLwcgbgOn1jeQmpyPazZbZfydX++LeETyzv9BmuVI1r5UTnbtv99EWssXekkjSlCAdVa4zT67VVPsjb4xPLuWjlUxjBlkhLqi2tc8InlFLIqBkNNZYOojFFG9eMyqnXiFOETa1g4rtoczYnR+QRIxoULKI5zNqMzYlRFbefngT0k8xYPi5xwyAunKorj6WYj0zS4F2a/oHG3pd+7wFvUd4lakowcqAmHN8IpNFwZIek1S1vxTU/kg5yPGe4FZcte1PwQW/xp3GvoqShMOxV/QJwtGxwsiRPXPyOioK34vwHlSh1qYVfqTAAAAABJRU5ErkJggg==">
+        </div>
+        <div>
+          <h2 style="font-size: 24px">Общественный транспорт #3</h2>
+          <p style="font-size: 18px">{{traffic[2]}} маршрутов</p>
+        </div>
+      </div>
+      </div>
+
+    </div> -->
+  <h2>Население</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3" style="margin-top: -50px">
+        <div class="col d-flex align-items-start" style="width: 400px; font-size: 12px">
+          <div style="overflow: auto scroll; overflow-x: hidden; height: 300px">{{ df[0].to_html(classes='table table-striped text-center', justify='center') | safe}}</div>
+        </div>
+        <div class="col d-flex align-items-start" style="width: 400px; margin-left: 20px; font-size: 12px">
+          <div style="overflow: auto scroll; overflow-x: hidden; height: 300px">{{ df[1].to_html(classes='table table-striped text-center', justify='center') | safe}}</div>
+          </div>
+        <div class="col d-flex align-items-start" style="width: 400px; margin-left: 20px; font-size: 12px">
+          <div style="overflow: auto scroll; overflow-x: hidden; height: 300px">{{ df[2].to_html(classes='table table-striped text-center', justify='center') | safe}}</div>
+        </div>
+    </div>
+
+  <hr class="my-5">
+  <h2>Магазины</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3" style="margin-top: -50px">
+        <div class="col d-flex align-items-start" style="width: 400px; font-size: 12px">
+          <div style="overflow: auto scroll; overflow-x: hidden; height: 300px">{{ df_shop[0].to_html(classes='table table-striped text-center', justify='center') | safe}}</div>
+        </div>
+        <div class="col d-flex align-items-start" style="width: 400px; margin-left: 20px; font-size: 12px">
+          <div style="overflow: auto scroll; overflow-x: hidden; height: 300px">{{ df_shop[1].to_html(classes='table table-striped text-center', justify='center') | safe}}</div>
+          </div>
+        <div class="col d-flex align-items-start" style="width: 400px; margin-left: 20px; font-size: 12px">
+          <div style="overflow: auto scroll; overflow-x: hidden; height: 300px">{{ df_shop[2].to_html(classes='table table-striped text-center', justify='center') | safe}}</div>
+        </div>
+    </div>
+  <hr class="my-5">
+  <h2>Пункты питания</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3" style="margin-top: -50px">
+        <div class="col d-flex align-items-start" style="width: 400px; font-size: 12px">
+          <div style="overflow: auto scroll; overflow-x: hidden; height: 300px">{{ df_cafe[0].to_html(classes='table table-striped text-center', justify='center') | safe}}</div>
+        </div>
+        <div class="col d-flex align-items-start" style="width: 400px; margin-left: 20px; font-size: 12px">
+          <div style="overflow: auto scroll; overflow-x: hidden; height: 300px">{{ df_cafe[1].to_html(classes='table table-striped text-center', justify='center') | safe}}</div>
+          </div>
+        <div class="col d-flex align-items-start" style="width: 400px; margin-left: 20px; font-size: 12px">
+          <div style="overflow: auto scroll; overflow-x: hidden; height: 300px">{{ df_cafe[2].to_html(classes='table table-striped text-center', justify='center') | safe}}</div>
+        </div>
+    </div>
+  <hr class="my-5">
+  <h2>Общественные организации</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3" style="margin-top: -50px">
+        <div class="col d-flex align-items-start" style="width: 400px; font-size: 12px">
+          <div style="overflow: auto scroll; overflow-x: hidden; height: 300px">{{ df_orgs[0].to_html(classes='table table-striped text-center', justify='center') | safe}}</div>
+        </div>
+        <div class="col d-flex align-items-start" style="width: 400px; margin-left: 20px; font-size: 12px">
+          <div style="overflow: auto scroll; overflow-x: hidden; height: 300px">{{ df_orgs[1].to_html(classes='table table-striped text-center', justify='center') | safe}}</div>
+          </div>
+        <div class="col d-flex align-items-start" style="width: 400px; margin-left: 20px; font-size: 12px">
+          <div style="overflow: auto scroll; overflow-x: hidden; height: 300px">{{ df_orgs[2].to_html(classes='table table-striped text-center', justify='center') | safe}}</div>
+        </div>
+    </div>
+  <hr class="my-5">
+  <h2>Остановки транспорта</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3" style="margin-top: -50px">
+        <div class="col d-flex align-items-start" style="width: 400px; font-size: 12px">
+          <div style="overflow: auto scroll; overflow-x: hidden; height: 300px">{{ df_trans[0].to_html(classes='table table-striped text-center', justify='center') | safe}}</div>
+        </div>
+        <div class="col d-flex align-items-start" style="width: 400px; margin-left: 20px; font-size: 12px">
+          <div style="overflow: auto scroll; overflow-x: hidden; height: 300px">{{ df_trans[1].to_html(classes='table table-striped text-center', justify='center') | safe}}</div>
+          </div>
+        <div class="col d-flex align-items-start" style="width: 400px; margin-left: 20px; font-size: 12px">
+          <div style="overflow: auto scroll; overflow-x: hidden; height: 300px">{{ df_trans[2].to_html(classes='table table-striped text-center', justify='center') | safe}}</div>
+        </div>
+    </div>
+
+    </div>
+  </div>
+
+
+  <div class="b-example-divider"></div>
+
+  <div class="bg-dark text-secondary px-4 py-5 text-center">
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" onClick='location.href="hex"'>Просмотреть карту</button>
+          <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" onClick='location.href="hex_heat"'>Просмотр с тепловой картой населения</button>
+        </div>
+  </div>
+
+
+  <div class="b-example-divider mb-0"></div>
+</main>
+<script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
